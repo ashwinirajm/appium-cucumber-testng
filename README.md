@@ -1,59 +1,68 @@
 # appium-cucumber-testng
 
-This repository demonstrates a minimal **BDD setup** for mobile automation using **Appium + Cucumber + TestNG**.
+This framework showcases how two devices (Device A and Device B) execute login and logout flows using a BDD approach, ensuring consistent behavior across Android and iOS.
 
-This framework is to showcase intentional use of BDD for **business-critical mobile flows**, without overengineering.
+**Scenario:**
+- Device A logs in with one account
+- Device B logs in with another account
+- Both sessions are validated
+- Both devices log out sequentially
+- Final state is verified on both devices
 
-## 🧰 Tech Stack
+## Tech Stack
 - Java
 - Appium
 - Cucumber (BDD)
 - TestNG
 - Maven
 
-## 📁 Project Structure
+## Project Structure
 ```
 appium-cucumber-testng
+│
+├── src/test/java
+│   ├── driver/
+│   │     └── DriverFactory.java   
+│   │
+│   ├── pages/
+│   │     ├── GoogleLoginPage.java
+│   │     └── SettingsPage.java
+│   │
+│   ├── steps/
+│   │     ├── LoginSteps.java
+│   │     └── Hooks.java
+│   │
+│   ├── utils/
+│   │     ├── WaitUtils.java
+│   │     ├── ScreenshotUtils.java
+│   │     └── MobileUtils.java
+│   │
+│   └── runner/
+│         └── TestRunner.java
+│
+├── src/test/resources
+│   ├── features/
+│   │     └── login_logout.feature
+│   │
+│   └── config/
+│         └── config.properties
+│
+├── testng.xml
 ├── pom.xml
-├── README.md
-├── src
-│   └── test
-│       ├── java
-│       │   └── com.company.automation
-│       │       ├── runners
-│       │       ├── stepdefinitions
-│       │       ├── pages
-│       │       ├── utils
-│       │       └── constants
-│       └── resources
-│           └── features
-├── reports
+├── README.md   
+└── screenshots/
 
 ```
 
-## 🧪 BDD Approach
-- **Feature files** describe behavior in business-readable language (Gherkin)
-- **Step Definitions** act as glue between scenarios and automation code
-- **Page Objects** encapsulate Appium interactions
-- **Hooks** handle driver setup and teardown
+## Features
+- Multi-Device Execution (Android + iOS)
+- ThreadLocal Driver Management for parallel-safe execution
+- BDD with Cucumber for readable test scenarios
+- Alternate Device Action Handling (Device A / Device B control)
+- Page Object Model (POM) for maintainable code
+- Reusable Utilities (waits, gestures, screenshots)
+- Failure Screenshot Capture
 
-## ▶️ How to Run Tests
-- Start the Appium server
-- Ensure Android emulator or device is running
-- Update app details in FrameworkConstants.java
-- Run:
-  - TestRunner.java or
-  - testng.xml
-
-
-
-
-
-
-
-
-
-
-
-
+## Run
+mvn clean test
 
