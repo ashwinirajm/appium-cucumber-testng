@@ -1,9 +1,37 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Appium BDD Suite">
 
-    <test name="Cucumber Tests">
+<suite name="Multi Device Suite" parallel="tests" thread-count="3">
+
+    <!-- Android Device 1 -->
+    <test name="Android_1">
+        <parameter name="platform" value="Android"/>
+        <parameter name="device" value="emulator-5554"/>
+        <parameter name="port" value="4723"/>
+
         <classes>
-            <class name="com.company.automation.runners.TestRunner"/>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+
+    <!-- Android Device 2 -->
+    <test name="Android_2">
+        <parameter name="platform" value="Android"/>
+        <parameter name="device" value="emulator-5556"/>
+        <parameter name="port" value="4725"/>
+
+        <classes>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+
+    <!-- iOS Device -->
+    <test name="iOS_1">
+        <parameter name="platform" value="iOS"/>
+        <parameter name="device" value="YOUR_IOS_UDID"/>
+        <parameter name="port" value="4727"/>
+
+        <classes>
+            <class name="runner.TestRunner"/>
         </classes>
     </test>
 
