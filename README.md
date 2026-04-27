@@ -1,4 +1,4 @@
-# appium-cucumber-testng
+# appium-bdd-multidevice-framework
 
 This framework showcases how two devices (Device A and Device B) execute login and logout flows using a BDD approach, ensuring consistent behavior across Android and iOS.
 
